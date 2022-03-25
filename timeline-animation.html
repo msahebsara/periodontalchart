@@ -80,9 +80,10 @@
         
       <main>
         <div class="d-flex justify-content-between mb-4">
+          <h2>Periodontal information</h2>
           <div>
-            <a class="h2" >Periodontal information</a>
-            <a href="timeline-animation.html" class="btn btn-outline-primary">Timeline Summary</a>
+            
+            <a href="timeline-summary.html" class="btn btn-outline-primary">Timeline Summary</a>
             <a href="daul-view.html" class="btn btn-outline-primary">Switch to Daul View</a>
         </div>
         </div>
@@ -97,7 +98,7 @@
           <div class="col-md-6">
             
             <h4>Animation of selected timeline treatment</h4>
-            <img src="animatedtreatment.gif" alt="Timeline view gif" width="500" height="333">
+            <img src="./img/animatedtreatment.gif" alt="Timeline view gif" width="500" height="333">
             
             
             
@@ -110,26 +111,30 @@
                   <div class="card-body">
                       <h5 class="card-title">John Smith <span class="badge bg-info text-dark">100021</span>
                       </h5>
-                      
+                       
                   </div>
               </div>
               </div>
-              <div class="col-md-6">
+              
+              
+              
                 <div class="container">
-                  <div class="card mb-1">
-                      
+                  <div class="card mb-4">
+                    <div class="card-body">
                           <h5 class="card-title">Treatment progress between 2022-01-02 and 2022-03-23
-                          </h5>
-                          <div class="card-body" id="treatmentSummary">
-                            Please select 2 dates below to make a comparison. 
-                          </div>
+                            </h5>
+                          <div id="treatmentSummary">
+                          Please select 2 dates below to make a comparison. 
+                        </div>
+                        
                   </div>
                 </div>
           </div>
-          <div class="d-flex justify-content-start mb-2">
+          </div>
+          <div class="d-flex justify-content-center mb-2">
             <div>
               <a >
-                <select name="treatmentdate1" id="treatmentdate1" onchange="doSomething();" onfocus="this.selectedIndex = -1;">
+                <select name="treatmentdate1" id="treatmentdate1" onchange="changeInfoToMatchDate();" onfocus="this.selectedIndex = -1;">
                   <option value="" disabled selected>Select your start comparison date</option>
                 <option value="2022-01-02">2022-01-02</option>
                 <option value="2022-02-05">2022-01-02</option>
@@ -138,7 +143,7 @@
               </select>
             </a>
             <a >
-              <select name="treatmentdate2" id="treatmentdate2" onchange="doSomething();" onfocus="this.selectedIndex = -1;" >
+              <select name="treatmentdate2" id="treatmentdate2" onchange="changeInfoToMatchDate();" onfocus="this.selectedIndex = -1;" >
                 <option value="" disabled selected>Select your end comparison date</option>
               <option value="2022-01-02">2022-01-02</option>
               <option value="2022-02-05">2022-01-02</option>
@@ -179,6 +184,9 @@
           document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning. Teeth have straightened marginally.";
         }
         else if(beginDateVal==="2022-01-02" && endDateVal==="2022-02-05"){
+          document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning.";
+        }
+        else if(beginDateVal>endDateVal){
           document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning.";
         }
       }
