@@ -195,9 +195,19 @@
             <label for="timeline" class="form-label float-start">Oldest</label>
             <label for="timeline" class="form-label float-end">Most recent</label>
             <input type="range" class="form-range" min="0" max="5" step="1" value="5" id="timeline">
+            <div class="d-flex justify-content-between">
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+                <span class=""><i class="bi bi-caret-up-fill"></i></span>
+            </div>
             <output for="timeline" onforminput="value = timeline.valueAsNumber;"></output>
             <div id="bubble" class="position-relative badge bg-secondary" style="width: 6rem;">03/01/2022</div>
         </div>
+
+
 
         <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="ariaEmailModal" aria-hidden="true">
             <div class="modal-dialog">
