@@ -222,7 +222,7 @@
             </div>
         </div>
 
-        <div class="toast-container position-absolute start-50 translate-middle-x">
+        <div class="toast-container position-absolute start-50 bottom-0 translate-middle-x">
             <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" id="toastSent">
                 <div class="d-flex">
                     <div class="toast-body">
@@ -233,7 +233,7 @@
             </div>
         </div>
 
-        <div class="toast-container position-absolute start-50 translate-middle-x">
+        <div class="toast-container position-absolute start-50 bottom-0 translate-middle-x">
             <div class="toast align-items-center text-white bg-secondary border-0" role="alert" aria-live="assertive" aria-atomic="true" id="toastDiscard">
                 <div class="d-flex">
                     <div class="toast-body">
@@ -291,7 +291,7 @@
             elChart.classList.add("shadow");
             elChart.classList.remove("d-none");
             elChartSpinner.classList.add("d-none");
-        },3000);
+        },2000);
         bubble.innerHTML = dates[val];
         bubble.style.left = `calc(${newVal-4.5}%)`;
     }
