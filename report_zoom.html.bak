@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Periodontal Chart App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <!-- Bootstrap Icons CSS -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+    />
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .icon-list {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .icon-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.25rem;
+        }
+
+        .icon-list li::before {
+            display: block;
+            flex-shrink: 0;
+            width: 1.5em;
+            height: 1.5em;
+            margin-right: 0.5rem;
+            content: "";
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23212529' viewBox='0 0 16 16'%3E%3Cpath d='M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z'/%3E%3C/svg%3E") no-repeat center center / 100% auto;
+        }
+		
+		button{
+			position: relative;
+		}
+		
+    </style>
+</head>
+<body>
+<div class="col-lg-8 mx-auto p-3 py-md-5">
+    <header class="align-items-center pb-3 mb-5 border-bottom">
+        <a href="/" class="align-items-center text-dark text-decoration-none">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="32"
+                    class="me-2"
+                    viewBox="0 0 118 94"
+                    role="img"
+            >
+                <title>Periodontal Chart App</title>
+                <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                        fill="currentColor"
+                ></path>
+            </svg>
+            <span class="fs-4">Periodontal Chart App</span>
+        </a>
+        <a href="" class="btn btn-outline-primary float-end">Settings</a>
+        <a href="" class="btn btn-outline-primary float-end mx-3"><i class="bi bi-question-circle"></i>
+        </a>
+    </header>
+
+    <main>
+        <div class="d-flex justify-content-between mb-3">
+            <h1>Summary Report</h1>
+            <div>
+                <a href="" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#emailModal">Email</a>
+                <a href="report_patient.html" class="btn btn-outline-primary">Patient View</a>
+            </div>
+        </div>
+        <hr class="col-3 col-md-2 mb-5"/>
+		
+		
+		
+		
+
+        <div class="container mb-5">
+            <div class="row">
+                <div class="col-8">
+                    <div class="d-flex justify-content-between">
+                        <h6>Chart #21</h6>
+                        <h6>(01/03/2021 Visit)</h6>
+                    </div>
+					<div 
+					<a href="" class="btn" data-bs-toggle="modal" data-bs-target="#zoomModal"> <img src="./img/periodontalchart_crop.png" class="w-100"/></button> </a>
+					</div>
+                    <div class="text-center d-none" id="spinner">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+					click on chart to zoom in on a tooth
+                </div>
+				
+
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">John Smith <span class="badge bg-info text-dark">100021</span>
+                            </h5>
+                            Last visit 01/03/2022
+                        </div>
+                    </div>
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            Issues
+                        </div>
+                        <div class="card-body">
+                            <div class="accordion accordion-flush" id="accordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="ach1">
+                                        <button class="accordion-button collapsed alert-dark" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#acc1" aria-expanded="false"
+                                                aria-controls="c1">
+                                            <span class="badge bg-dark me-2 w-25">Persisting</span> Teeth #01
+                                        </button>
+                                    </h2>
+                                    <div id="acc1" class="accordion-collapse collapse" aria-labelledby="c1"
+                                         data-bs-parent="#accordion">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title">Cavity</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="#" class="btn btn-primary">Zoom in</a>
+                                                <a href="#" class="btn btn-primary">Treatments</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="ach2">
+                                        <button class="accordion-button collapsed alert-danger" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#acc2" aria-expanded="false"
+                                                aria-controls="c2">
+                                            <span class="badge bg-danger me-2 w-25">New</span> Teeth #03
+                                        </button>
+                                    </h2>
+                                    <div id="acc2" class="accordion-collapse collapse" aria-labelledby="c2"
+                                         data-bs-parent="#accordion">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title">Gum Infection</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="#" class="btn btn-primary">Zoom in</a>
+                                                <a href="#" class="btn btn-primary">Treatments</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="ach3">
+                                        <button class="accordion-button collapsed alert-success" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#acc3" aria-expanded="false"
+                                                aria-controls="c3">
+                                            <span class="badge bg-success me-2 w-25">Solved</span> Teeth #04
+                                        </button>
+                                    </h2>
+                                    <div id="acc3" class="accordion-collapse collapse" aria-labelledby="c3"
+                                         data-bs-parent="#accordion">
+                                        <div class="card mb-4">
+                                            <div class="card-header">
+                                                <h5 class="card-title">Cavity</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <a href="#" class="btn btn-primary">Zoom in</a>
+                                                <a href="#" class="btn btn-primary">Treatments</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <label for="timeline" class="form-label float-start">Oldest</label>
+            <label for="timeline" class="form-label float-end">Most recent</label>
+            <input type="range" class="form-range" min="0" max="5" step="1" value="5" id="timeline">
+            <output for="timeline" onforminput="value = timeline.valueAsNumber;"></output>
+            <div id="bubble" class="position-relative badge bg-secondary" style="width: 6rem;">03/01/2022</div>
+        </div>
+		
+		
+
+        <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="ariaEmailModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="emailModalLabel">Send report via email</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <label for="staticEmail">Email</label>
+                        <div class="input-group mb-3">
+                            <input type="text" readonly class="form-control" id="staticEmail"
+                                   value="smith@legitmail.com" aria-label="email" aria-describedby="button-addon1">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1"><i class="bi-pencil-square"></i></button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="discardToast.show()">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="sentToast.show()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="toast-container position-absolute start-50 translate-middle-x">
+            <div class="toast align-items-center text-white bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" id="toastSent">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Email sent.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+		
+		
+		
+		<div class="modal fade" id="zoomModal" tabindex="-1" role="dialog" aria-labelledby="ToothNum" aria-hidden="true">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="ToothNum">Tooth Number 13</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			  </div>
+			  <div class="modal-body">
+				
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col text-center">
+							<button type="button" class="btn btn-outline-primary" >Prev</button>
+						</div>
+						<div class="col">
+							<div id="chart" class="container">
+								<img src="./img/zoom.png">
+							</div>
+						</div>
+						<div class="col text-center">
+							<button type="button" class="btn btn-outline-primary">Next</button>
+						</div>
+					</div>
+					<div class="row">
+						<button type="button" class="btn btn-primary">Play Animation</button>
+					</div>
+					<div class="row">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat lorem ac velit lobortis vestibulum. Donec a mauris et nulla cursus eleifend in sed massa. Pellentesque tristique augue sit amet arcu suscipit, in laoreet turpis pharetra. Donec ullamcorper sapien sem, vehicula finibus orci pulvinar ut.
+					</div>
+				</div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
+              </div>
+			</div>
+		  </div>
+		</div>
+
+        <div class="toast-container position-absolute start-50 translate-middle-x">
+            <div class="toast align-items-center text-white bg-secondary border-0" role="alert" aria-live="assertive" aria-atomic="true" id="toastDiscard">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        Email draft discarded.
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+        CMPUT302 Project 3 (Group: Online-1)
+    </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script>
+    var sentToast;
+    var discardToast;
+    const range = document.getElementById("timeline");
+    const bubble = document.getElementById("bubble");
+    let elChart;
+    let elChartSpinner;
+    document.addEventListener("DOMContentLoaded", function(event) {
+        var sentToastEl = document.getElementById('toastSent');
+        sentToast = new bootstrap.Toast(sentToastEl);
+        var discardToastEl = document.getElementById('toastDiscard');
+        discardToast = new bootstrap.Toast(discardToastEl);
+        elChart = document.getElementById('chart');
+        elChartSpinner = document.getElementById('spinner');
+        setBubble(range,bubble);
+    });
+
+    range.addEventListener("input", () => {
+        setBubble(range, bubble);
+    });
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover();
+	});
+
+    function setBubble(range, bubble) {
+        const val = range.value;
+        const min = range.min ? range.min : 0;
+        const max = range.max ? range.max : 100;
+        const dates = ["03/01/2020", "07/02/2020", "04/01/2021", "08/01/2021", "01/01/2022", "02/01/2022"];
+        let newVal = Number(((val - min) * 100) / (max - min));
+        elChart.classList.remove("shadow");
+        elChart.classList.add("shadow-lg");
+        elChart.classList.add("d-none");
+        elChartSpinner.classList.remove("d-none");
+        range.disabled=true;
+        setInterval(function () {
+            range.disabled=false;
+            elChart.classList.remove("shadow-lg");
+            elChart.classList.add("shadow");
+            elChart.classList.remove("d-none");
+            elChartSpinner.classList.add("d-none");
+        },3000);
+        bubble.innerHTML = dates[val];
+        bubble.style.left = `calc(${newVal-4.5}%)`;
+    }
+</script>
+</body>
+</html>
