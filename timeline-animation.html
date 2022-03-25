@@ -120,28 +120,28 @@
                       
                           <h5 class="card-title">Treatment progress between 2022-01-02 and 2022-03-23
                           </h5>
-                          <div class="card-body">
-                          This patient has blah blah issue, this has been slowly recovered over this time period. From this time period to this time period, this other issue has gotten worse. 
-                        </div>
+                          <div class="card-body" id="treatmentSummary">
+                            Please select 2 dates below to make a comparison. 
+                          </div>
                   </div>
                 </div>
           </div>
           <div class="d-flex justify-content-start mb-2">
             <div>
               <a >
-                <select name="cars" id="cars" >
+                <select name="treatmentdate1" id="treatmentdate1" onchange="doSomething();" onfocus="this.selectedIndex = -1;">
                   <option value="" disabled selected>Select your start comparison date</option>
                 <option value="2022-01-02">2022-01-02</option>
-                
+                <option value="2022-02-05">2022-01-02</option>
                 <option value="2022-03-23">2022-03-23</option>
 
               </select>
             </a>
             <a >
-              <select name="cars" id="cars" >
+              <select name="treatmentdate2" id="treatmentdate2" onchange="doSomething();" onfocus="this.selectedIndex = -1;" >
                 <option value="" disabled selected>Select your end comparison date</option>
               <option value="2022-01-02">2022-01-02</option>
-              
+              <option value="2022-02-05">2022-01-02</option>
               <option value="2022-03-23">2022-03-23</option>
 
             </select>
@@ -162,5 +162,26 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <script>
+      
+      function changeInfoToMatchDate(){
+        dropDownStartDate = document.getElementById("treatmentdate1");
+        dropDownEndDate = document.getElementById("treatmentdate2");
+        beginDateVal = dropDownStartDate.value;
+        endDateVal = dropDownEndDate.value;
+        if(beginDateVal===endDateVal){
+          document.getElementById("treatmentSummary").textContent = "End date and start date are the same so no progress has been made";
+        }
+        else if(beginDateVal==="2022-01-02" && endDateVal==="2022-03-23"){
+          document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning. Teeth have straightened significantly.";
+        }
+        else if(beginDateVal==="2022-02-05" && endDateVal==="2022-03-23"){
+          document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning. Teeth have straightened marginally.";
+        }
+        else if(beginDateVal==="2022-01-02" && endDateVal==="2022-02-05"){
+          document.getElementById("treatmentSummary").textContent = "Molars have grown a bit, gums have receded due to improper cleaning.";
+        }
+      }
+    </script>
   </body>
 </html>
